@@ -11,21 +11,18 @@ public class Main {
     }
     public static void main(String[] args) {
         int[] arr = generateRandomArray();
-        String a = Arrays.toString(arr);
-        System.out.println(a);
+        System.out.println(Arrays.toString(arr));
         System.out.println();
         // Задание 1
         //Первым делом бухгалтеры попросили посчитать сумму всех выплат за месяц.
         //Нужно написать программу, которая решит эту задачу, и вывести в консоль результат
         //в формате: «Сумма трат за месяц составила … рублей».
         System.out.println("Task 1");
-        int costAmountPerMonth = 0;
-        for (int i = 0; i < arr.length; i++) {
-            costAmountPerMonth += arr[i];
-            if (i == arr.length - 1) {
-                System.out.println(" Сумма трат за месяц составила "+costAmountPerMonth+" рублей.");
-            }
+        float costAmountPerMonth= 0f;
+        for (int eachArrayNumbers : arr) {
+            costAmountPerMonth += eachArrayNumbers;
         }
+        System.out.println(" Сумма трат за месяц составила "+costAmountPerMonth+" рублей.");
         // Задание 2
         //Следующая задача — найти минимальную и максимальную трату за день.
         //Нужно написать программу, которая решит эту задачу, и вывести в консоль результат
@@ -42,7 +39,7 @@ public class Main {
                 minimumSpendingPerMonth = allExpensesForTheMonth;
             }
         }
-        System.out.println("«Минимальная сумма трат за день составила "+minimumSpendingPerMonth +" рублей.");
+        System.out.println("Минимальная сумма трат за день составила "+minimumSpendingPerMonth +" рублей.");
         System.out.println("Максимальная сумма трат за день составила "+maximumSpendingPerMonth+" рублей.");
         // Задание 3
         //А теперь нам нужно понять, какую в среднем сумму наша компания тратила в течение данных
@@ -53,12 +50,7 @@ public class Main {
         // **Важно помнить:** подсчет среднего значения может иметь остаток
         // (то есть быть не целым, а дробным числом).
         System.out.println("Task 3");
-        float averageAmountSpent = 0f;
-       float lengthArray=arr.length;
-        for (int sumOfNumbers : arr) {
-            averageAmountSpent += sumOfNumbers /  lengthArray;
-        }
-        System.out.println(" Средняя сумма трат за месяц составила "+averageAmountSpent+" рублей.");
+        System.out.println(" Средняя сумма трат за месяц составила "+costAmountPerMonth/ arr.length+" рублей.");
         // Задание 4
         //Отойдем от подсчетов.
         //В нашей бухгалтерской книге появился баг. Что-то пошло нет так, и Ф.И.О.
@@ -74,13 +66,8 @@ public class Main {
         // порядке.
         System.out.println("Task 4");
         char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        for(char i =0; i<reverseFullName.length/2;i++){
-        char name =(reverseFullName[reverseFullName.length -i -1]);
-            reverseFullName[reverseFullName.length-i-1]=reverseFullName[i];
-            reverseFullName[i] = name;
-        }
-        for (char fullName : reverseFullName) {
-            System.out.print(fullName);
+        for( int i = reverseFullName.length -1; i >= 0 ;i--){
+                System.out.print(reverseFullName[i]);
+            }
         }
     }
-}
